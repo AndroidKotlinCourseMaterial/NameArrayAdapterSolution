@@ -1,1 +1,1 @@
-# NameStringAdapterSolution
+# NameArrayAdapterSolution
