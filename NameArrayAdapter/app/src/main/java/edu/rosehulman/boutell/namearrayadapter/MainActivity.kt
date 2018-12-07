@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         initializeNames()
-        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, namesToDisplay)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, namesToDisplay)
         list_view.adapter = adapter
 
         fab.setOnClickListener { view ->
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             "Andrew",
             "XiaoLi (Tony)",
             "Xiao",
-            "Hannah",
+            "Hannah", // plus some other very-common names.
             "Emily",
             "Sarah",
             "Madison",
