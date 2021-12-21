@@ -1,28 +1,31 @@
-package edu.rosehulman.boutell.namearrayadapter
+package edu.rosehulman.namearrayadapter
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
-
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
+import androidx.appcompat.app.AppCompatActivity
+import edu.rosehulman.namearrayadapter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     private lateinit var rosterAndRandomNames: Array<String>
     private val namesToDisplay = ArrayList<String>()
     private lateinit var adapter: ArrayAdapter<String>
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
         initializeNames()
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, namesToDisplay)
-        list_view.adapter = adapter
-
-        fab.setOnClickListener { view ->
+        binding.contentMain.listView.adapter = adapter
+        binding.fab.setOnClickListener {
             addRandomName()
             adapter.notifyDataSetChanged()
         }
@@ -46,43 +49,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeNames() {
         rosterAndRandomNames = arrayOf(
-            "Mohammad",
-            "John",
-            "Xiangbei (Claudia)",
-            "Yifei (Fay)",
-            "Alyssa",
-            "Connor",
-            "Yang (Winston)",
-            "Jacob",
-            "Shixian (Sonia)",
-            "Yuhan (Frost)",
-            "Sebastian",
-            "Jordan",
-            "Eugene",
-            "Ruojie (Valerie)",
-            "Matthew",
-            "Yiyu (Maggie)",
-            "Arjun",
-            "Aaron",
-            "Eric",
-            "Shinmon",
-            "Jingrui (Jerry)",
-            "Mengyue",
-            "Xiangnan (Tiger)",
-            "Keith",
-            "Yifan (Augustine)",
-            "Anand",
-            "Alexander",
-            "Samuel",
-            "Chuhan (Alan)",
-            "Yihui (Solomon)",
-            "Bryan",
-            "Jordan",
-            "Bailey",
-            "Jianan",
-            "Andrew",
-            "XiaoLi (Tony)",
-            "Xiao",
+            "Evan",
+            "Stephen",
+            "Charlie",
+            "Natalie",
+            "Michael",
+            "Jasmine",
+            "Xingheng",
+            "Elvis",
+            "Nick",
+            "Adithya",
+            "Jasmine",
+            "Nicholas",
+            "Blake",
+            "Elle",
+            "Rachel",
+            "Darren",
+            "Deng",
+            "Vik",
+            "Max",
+            "Vuk",
+            "Brandon",
+            "Edward",
+            "Lyra",
+            "Jack",
             "Hannah", // plus some other very-common names.
             "Emily",
             "Sarah",
